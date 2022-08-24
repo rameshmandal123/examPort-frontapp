@@ -1,0 +1,180 @@
+<div class="container">
+ <div class="row col-md-10 offset-md-1 mt-5">
+<!--card start-->
+    <div class="card">
+        <div class="card-header">
+           <div class="container text-center">
+          <img class="logo" src="../../../assets/logo.png">
+            <h4 class="text-center text-primary">Sign-Up</h4>
+           </div>
+        </div>
+    <!--end header-->
+
+    <!-- start body-->
+        <div class="card-body p-4">
+
+          <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
+<!--            {{registerForm | json}}-->
+          <h2 class="text-primary"><strong>Please Fill all the require fields</strong><strong style="color:red;"> *</strong></h2>
+            <div class="row col-md-12 offset-md-1">
+              <!-- firstname -->
+
+              <div class="col-md-5 mt-4">
+                <label for="firstName" class="form-label"><b>First-Name</b><strong style="color:red;"> *</strong></label>
+                <input name="firstName"
+                      type="text"
+                       class="form-control"
+                       id="firstName"
+                      formControlName="firstName"
+                       placeholder="First-Name"
+                       [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }">
+                <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                <small *ngIf="f['firstName'].errors['required']">name is required</small>
+                </div>
+              </div>
+
+         <!-- last-name-->
+              <div class="col-md-5 mt-4">
+                <label for="last_name" class="form-label"><b>Last-Name</b><strong style="color:red;"> *</strong></label>
+                <input name="lastName"
+                type="text"
+                       class="form-control"
+                       id="last_name"
+                       formControlName="lastName"
+                       placeholder="Last-Name"
+                     [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }">
+                <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                <small *ngIf="f['lastName'].errors['required']">Last Name is required</small>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row col-md-12 offset-md-1">
+              <!-- username -->
+              <div class="col-md-5 mt-4">
+                <label for="username" class="form-label"><b>Username</b><strong style="color:red;"> *</strong></label>
+                <input type="text"
+                        name="username"
+                       class="form-control"
+                       id="username"
+                       formControlName="username"
+                       placeholder="Username"
+                [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                <small *ngIf="f['username'].errors['required']">username is required</small>
+                </div>
+              </div>
+         <!-- email-->
+              <div class="col-md-5 mt-4">
+                <label for="email" class="form-label"><b>Email</b><strong style="color:red;"> *</strong></label>
+                <input type="email"
+                       name="email"
+                       class="form-control"
+                       id="email"
+                       formControlName="email"
+                       placeholder="Email"
+                [ngClass]="{'is-invalid': submitted && f['email'].errors}">
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <small *ngIf="f['email'].errors['required']">email is required</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row col-md-12 offset-md-1">
+              <!-- Password -->
+              <div class="col-md-5 mt-4">
+                <label for="password" class="form-label"><b>Password</b><strong style="color:red;"> *</strong></label>
+                <input type="password"
+                 name="password"
+                       class="form-control"
+                       id="password"
+                       formControlName="password"
+                       placeholder="Password"
+                [ngClass]="{'is-invalid': submitted && f['password'].errors}">
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                <small *ngIf="f['password'].errors['required']">password is required</small>
+                </div>
+              </div>
+         <!-- Contact-->
+              <div class="col-md-5 mt-4">
+                <label for="contact" class="form-label"><b>Contact</b><strong style="color:red;"> *</strong></label>
+                <input type="text"
+                         name="phoneNumber"
+                       class="form-control"
+                       id="contact"
+                       formControlName="phoneNumber"
+                       placeholder="Contact"
+                [ngClass]="{'is-invalid': submitted && f['phoneNumber'].errors}">
+                <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
+                <small *ngIf="f['phoneNumber'].errors['required']">contact is required</small>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row col-md-12 offset-md-1">
+              <!-- Date of birth -->
+              <div class="col-md-5 mt-4">
+                <label for="password" class="form-label"><b>Date Of birth</b><strong style="color:red;"> *</strong></label>
+                <mat-form-field class="example-full-width">
+                <input name="dateOfBirth" formControlName="dateOfBirth"
+                matInput [matDatepicker]="picker" [ngClass]="{'is-invalid': submitted && f['dateOfBirth'].errors}">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker  #picker></mat-datepicker>
+              </mat-form-field><br>
+                <div *ngIf="submitted && f['dateOfBirth'].errors" class="invalid-feedback">
+                  <small *ngIf="f['dateOfBirth'].errors['required']">contact is required</small>
+                </div>
+              </div>
+
+              <div class="col-md-1 mt-5">
+                <div class="form-check">
+                  <input class="form-check-input"
+                         type="radio"
+                         name="gender" id="male"
+                         value="male" formControlName="gender" [ngClass]="{'is-invalid': submitted && f['gender'].errors}">
+                  <label class="form-check-label" for="male">Male</label>
+              </div>
+            </div>
+
+              <div class="col-md-1 mt-5">
+                <div class="form-check">
+                  <input class="form-check-input"
+                         type="radio" name="gender"
+                         id="female" value="female"
+                         formControlName="gender" [ngClass]="{'is-invalid': submitted && f['gender'].errors}">
+                  <label class="form-check-label" for="female">Female</label>
+                </div>
+              </div>
+
+            </div>
+
+
+<!--text area-->
+            <div class="row col-md-10 offset-md-1 mt-4">
+              <mat-form-field>
+              <mat-label>Textarea</mat-label>
+              <textarea name="about" formControlName="about" matInput [ngClass]="{'is-invalid': submitted && f['about'].errors}">
+
+              </textarea>
+            </mat-form-field>
+              <div *ngIf="submitted && f['about'].errors" class="invalid-feedback">
+                <small *ngIf="f['about'].errors['required']">contact is required</small>
+              </div>
+            </div>
+
+            <div class="container text-center">
+              <button type="submit"  style="margin-right: 6px;" mat-raised-button color="primary">Save</button> ||
+               <button (click)="onReset()" mat-raised-button color="accent">Reset</button>
+            </div>
+
+          </form>
+
+          </div>
+
+         <!--  end card body-->
+      </div>
+   <!--card start-->
+ </div>
+</div>

@@ -23,6 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule} from "@angular/material/snack-bar";
 import { HomeComponent } from './pages/home/home.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {authInterceptorProviders} from "./services/auth.interceptor";
+import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 
 
 
@@ -33,7 +36,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FooterComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AdminDashboardComponent,
+    UserDashboardComponent
 
   ],
   imports: [
@@ -55,10 +60,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatSnackBarModule
-
-
   ],
-  providers: [],
+
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

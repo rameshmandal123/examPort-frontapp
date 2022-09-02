@@ -1,27 +1,27 @@
 <div class="bootstrap-wrapper">
   <div class="container">
     <div class="row">
-
       <div class="col-md-4 offset-md-4 mt-4">
         <div class="card p-3 mt-4">
         <div class="container text-center">
           <img class="logo" src="../../../assets/logo.png">
         </div>
         <h2 class="text-center text-primary">Login Here !!!</h2>
-            <form action="">
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 <!--              username-->
               <mat-form-field class="full-width" appearance="outline">
        <mat-label>UserName</mat-label>
-                <input matInput placeholder="UserName" id="username" name="username">
+                <input matInput placeholder="UserName" id="username" name="username" formControlName="username">
                 <mat-hint>Username required </mat-hint>
               </mat-form-field>
 
 <!--              password-->
               <div class="mt-4">
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>UserName</mat-label>
-                <input matInput placeholder="Password" id="password" name="password">
-                <mat-hint>Username required </mat-hint>
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" id="password" name="password" formControlName="password">
+                <mat-hint>Password required </mat-hint>
               </mat-form-field>
               </div>
 
